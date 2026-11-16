@@ -1,0 +1,841 @@
+/* ========================================
+   KC LIVE - PARODY ARCHIVE
+======================================== */
+
+/* ROOT */
+#page-live {
+    --live-accent: #79d9ff;
+    --live-accent-bright: #00d9ff;
+    --live-accent-soft: rgba(121, 217, 255, 0.1);
+    --live-border: rgba(121, 217, 255, 0.16);
+    --live-border-hover: rgba(121, 217, 255, 0.42);
+    --live-panel: rgba(10, 20, 36, 0.82);
+    --live-panel-light: rgba(16, 31, 52, 0.72);
+    --live-text: #eaf6ff;
+    --live-muted: #8198ae;
+
+    color: var(--live-text);
+}
+
+/* ========================================
+   CONTENT
+======================================== */
+
+#page-live .live-content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 50px;
+}
+
+/* ========================================
+   LIVE HEADER
+======================================== */
+
+#page-live .live-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 34px 38px;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(0, 217, 255, 0.08), transparent 45%),
+        var(--live-panel);
+    border: 1px solid var(--live-border);
+    border-radius: 18px;
+}
+
+#page-live .live-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#page-live .live-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--live-accent);
+}
+
+#page-live .live-status-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--live-accent-bright);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
+    animation: liveStatusPulse 2s ease-in-out infinite;
+}
+
+#page-live .live-header h2 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#page-live .live-header h2 span {
+    color: var(--live-accent);
+}
+
+#page-live .live-header p {
+    margin: 0;
+    color: var(--live-muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   FILTER
+======================================== */
+
+#page-live .live-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(121, 217, 255, 0.1);
+}
+
+#page-live .live-filter-button {
+    padding: 11px 18px;
+    background: transparent;
+    border: 1px solid rgba(121, 217, 255, 0.12);
+    border-radius: 8px;
+    color: var(--live-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#page-live .live-filter-button:hover {
+    color: var(--live-text);
+    border-color: var(--live-border-hover);
+}
+
+#page-live .live-filter-button.active {
+    color: var(--live-accent);
+    background: var(--live-accent-soft);
+    border-color: var(--live-border-hover);
+    box-shadow: inset 0 0 18px rgba(0, 217, 255, 0.04);
+}
+
+/* ========================================
+   PARODY LIST
+======================================== */
+
+#page-live .live-parody-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* ========================================
+   PARODY CARD
+======================================== */
+
+#page-live .live-parody-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 30px;
+    overflow: hidden;
+
+    background: linear-gradient(145deg, rgba(16, 31, 52, 0.78), rgba(7, 15, 28, 0.92));
+
+    border: 1px solid var(--live-border);
+    border-radius: 16px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* CARD LIGHT */
+#page-live .live-parody-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(90deg, transparent, var(--live-accent), transparent);
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+#page-live .live-parody-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--live-border-hover);
+
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.24),
+        0 0 25px rgba(0, 217, 255, 0.04);
+
+    background: linear-gradient(145deg, rgba(19, 38, 62, 0.9), rgba(7, 15, 28, 0.96));
+}
+
+#page-live .live-parody-card:hover::before {
+    opacity: 1;
+}
+
+/* CARD HEADER */
+
+#page-live .live-parody-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#page-live .live-parody-category {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+
+    padding: 7px 10px;
+
+    background: rgba(121, 217, 255, 0.08);
+    border: 1px solid rgba(121, 217, 255, 0.14);
+    border-radius: 5px;
+
+    color: var(--live-accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#page-live .live-parody-number {
+    color: rgba(129, 152, 174, 0.55);
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* CARD TITLE */
+
+#page-live .live-parody-card h3 {
+    margin: 0 0 15px;
+
+    color: #f2f8ff;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+
+    transition: color 0.3s ease;
+}
+
+#page-live .live-parody-card:hover h3 {
+    color: var(--live-accent);
+}
+
+/* DESCRIPTION */
+
+#page-live .live-parody-description {
+    margin: 0;
+
+    color: var(--live-muted);
+    font-size: 13px;
+    line-height: 1.9;
+
+    flex: 1;
+}
+
+/* META */
+
+#page-live .live-parody-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(121, 217, 255, 0.08);
+}
+
+#page-live .live-parody-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #718ba4;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#page-live .live-parody-meta i {
+    color: var(--live-accent);
+    font-size: 11px;
+}
+
+/* READ BUTTON */
+
+#page-live .live-parody-open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px 17px;
+
+    background: rgba(121, 217, 255, 0.04);
+    border: 1px solid rgba(121, 217, 255, 0.14);
+    border-radius: 8px;
+
+    color: var(--live-accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+#page-live .live-parody-open i {
+    transition: transform 0.3s ease;
+}
+
+#page-live .live-parody-open:hover {
+    background: rgba(121, 217, 255, 0.1);
+    border-color: var(--live-border-hover);
+}
+
+#page-live .live-parody-open:hover i {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   PARODY VIEWER
+======================================== */
+
+#page-live .live-parody-viewer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    animation: liveViewerEnter 0.45s ease both;
+}
+
+#page-live .live-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--live-border);
+}
+
+#page-live .live-viewer-label {
+    color: var(--live-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#page-live .live-viewer-content {
+    position: relative;
+    padding: clamp(25px, 5vw, 55px);
+
+    background:
+        radial-gradient(circle at 0% 0%, rgba(0, 217, 255, 0.06), transparent 40%),
+        var(--live-panel);
+
+    border: 1px solid var(--live-border);
+    border-radius: 18px;
+}
+
+#page-live #live-viewer-category {
+    margin-bottom: 20px;
+}
+
+#page-live #live-viewer-title {
+    margin: 0 0 35px;
+
+    color: #f2f8ff;
+    font-size: clamp(25px, 4vw, 38px);
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* DIALOGUE AREA */
+
+#page-live .live-viewer-dialogue {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* JS dialogue items */
+#page-live .live-dialogue-line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 20px 24px;
+
+    background: rgba(121, 217, 255, 0.035);
+    border-left: 2px solid var(--live-border);
+    border-radius: 0 8px 8px 0;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+#page-live .live-dialogue-line:hover {
+    background: rgba(121, 217, 255, 0.065);
+    border-left-color: var(--live-accent);
+    transform: translateX(3px);
+}
+
+#page-live .live-dialogue-character {
+    color: var(--live-accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#page-live .live-dialogue-text {
+    margin: 0;
+
+    color: #d9e8f7;
+    font-size: 14px;
+    line-height: 2;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   PARODY EDITOR
+======================================== */
+
+#page-live .live-parody-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    animation: liveViewerEnter 0.45s ease both;
+}
+
+#page-live .live-editor-header {
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--live-border);
+}
+
+#page-live .live-editor-label {
+    display: block;
+    margin-bottom: 15px;
+
+    color: var(--live-accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+#page-live .live-editor-header h2 {
+    margin: 0 0 12px;
+
+    color: #f2f8ff;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#page-live .live-editor-header h2 span {
+    color: var(--live-accent);
+}
+
+#page-live .live-editor-header p {
+    margin: 0;
+
+    color: var(--live-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* FORM */
+
+#page-live #live-parody-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding: clamp(22px, 4vw, 40px);
+
+    background: var(--live-panel);
+    border: 1px solid var(--live-border);
+    border-radius: 16px;
+}
+
+#page-live .live-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#page-live .live-form-group label {
+    color: var(--live-accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* INPUT / SELECT / TEXTAREA */
+
+#page-live .live-form-group input,
+#page-live .live-form-group select,
+#page-live .live-form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 15px 17px;
+
+    background: rgba(3, 10, 20, 0.75);
+    border: 1px solid rgba(121, 217, 255, 0.14);
+    border-radius: 8px;
+
+    color: var(--live-text);
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.8;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+#page-live .live-form-group input::placeholder,
+#page-live .live-form-group textarea::placeholder {
+    color: rgba(129, 152, 174, 0.45);
+}
+
+#page-live .live-form-group input:focus,
+#page-live .live-form-group select:focus,
+#page-live .live-form-group textarea:focus {
+    background: rgba(5, 15, 28, 0.95);
+    border-color: rgba(121, 217, 255, 0.55);
+
+    box-shadow: 0 0 0 3px rgba(121, 217, 255, 0.06);
+}
+
+#page-live .live-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#page-live #live-parody-script {
+    min-height: 300px;
+    font-family: inherit;
+    line-height: 2;
+}
+
+/* SELECT */
+
+#page-live .live-form-group select {
+    cursor: pointer;
+}
+
+#page-live .live-form-group select option {
+    background: #0a1424;
+    color: #eaf6ff;
+}
+
+/* EDITOR ACTIONS */
+
+#page-live .live-editor-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 10px;
+}
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+#page-live .primary-button,
+#page-live .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 46px;
+    padding: 13px 20px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+#page-live .primary-button {
+    background: rgba(0, 217, 255, 0.1);
+    border: 1px solid rgba(0, 217, 255, 0.35);
+
+    color: var(--live-accent);
+}
+
+#page-live .primary-button:hover {
+    transform: translateY(-2px);
+
+    background: rgba(0, 217, 255, 0.16);
+    border-color: rgba(0, 217, 255, 0.65);
+
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.08);
+}
+
+#page-live .secondary-button {
+    background: transparent;
+    border: 1px solid rgba(121, 217, 255, 0.15);
+
+    color: var(--live-muted);
+}
+
+#page-live .secondary-button:hover {
+    color: var(--live-text);
+    border-color: rgba(121, 217, 255, 0.4);
+}
+
+/* ========================================
+   HIDDEN STATE
+======================================== */
+
+#page-live .hidden {
+    display: none !important;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes liveStatusPulse {
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
+    }
+
+    50% {
+        opacity: 0.45;
+        box-shadow: 0 0 4px rgba(0, 217, 255, 0.25);
+    }
+}
+
+@keyframes liveViewerEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1024px) {
+    #page-live .live-parody-list {
+        grid-template-columns: 1fr;
+    }
+
+    #page-live .live-header {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    #page-live .live-content {
+        gap: 25px;
+        margin-top: 35px;
+    }
+
+    #page-live .live-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 25px;
+    }
+
+    #page-live .live-header > .primary-button {
+        width: 100%;
+    }
+
+    #page-live .live-filter {
+        gap: 8px;
+    }
+
+    #page-live .live-filter-button {
+        padding: 10px 13px;
+        font-size: 9px;
+    }
+
+    #page-live .live-parody-card {
+        padding: 24px;
+    }
+
+    #page-live .live-parody-card h3 {
+        font-size: 20px;
+    }
+
+    #page-live .live-viewer-content {
+        padding: 25px 20px;
+    }
+
+    #page-live .live-dialogue-line {
+        padding: 17px;
+    }
+
+    #page-live #live-parody-form {
+        padding: 22px 18px;
+    }
+
+    #page-live .live-editor-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #page-live .live-editor-actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    #page-live .live-parody-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #page-live .live-parody-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #page-live .live-parody-card h3 {
+        font-size: 18px;
+    }
+
+    #page-live .live-header h2 {
+        font-size: 27px;
+    }
+
+    #page-live .live-editor-header h2 {
+        font-size: 25px;
+    }
+
+    #page-live .live-dialogue-text {
+        font-size: 13px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    #page-live *,
+    #page-live *::before,
+    #page-live *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+#page-live .live-empty-state {
+    grid-column: 1 / -1;
+
+    padding: 60px 25px;
+
+    background: rgba(10, 20, 36, 0.6);
+    border: 1px dashed rgba(121, 217, 255, 0.2);
+    border-radius: 12px;
+
+    color: #8198ae;
+    text-align: center;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   KC LIVE - NARRATION
+======================================== */
+
+#page-live .live-narration-line {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 28px 0;
+    padding: 18px 24px;
+    text-align: center;
+    border: 1px dashed rgba(121, 217, 255, 0.25);
+    border-radius: 12px;
+    background: rgba(121, 217, 255, 0.035);
+}
+
+#page-live .live-narration-character {
+    color: var(--live-accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    opacity: 0.65;
+}
+
+#page-live .live-narration-text {
+    color: rgba(210, 225, 240, 0.75);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.8;
+    margin: 8px 0 0;
+}

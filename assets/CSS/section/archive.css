@@ -1,0 +1,811 @@
+/* ========================================
+   KC DUELIST ARCHIVE - CLEANED CSS
+   Duplicate selectors consolidated
+======================================== */
+
+/* ROOT */
+#page-archive {
+    --archive-accent: #79d9ff;
+    --archive-accent-soft: rgba(121, 217, 255, 0.12);
+    --archive-border: rgba(121, 217, 255, 0.16);
+    --archive-panel: rgba(10, 20, 36, 0.72);
+    --archive-muted: rgba(205, 220, 240, 0.48);
+
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* PAGE CONTAINER */
+#page-archive .page-container {
+    position: relative;
+    width: min(100% - 80px, 1440px);
+    margin-inline: auto;
+    padding-bottom: 120px;
+}
+
+/* PAGE HEADING */
+#page-archive .page-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 72px;
+}
+
+/* ARCHIVE TOOLBAR */
+#page-archive .archive-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 36px;
+}
+
+#page-archive .archive-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* CREATE SCENARIO BUTTON */
+#page-archive #create-scenario-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 22px;
+    color: #07111e;
+    background: var(--archive-accent);
+    border: 1px solid var(--archive-accent);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#page-archive #create-scenario-button:hover {
+    background: #b5edff;
+    box-shadow: 0 0 24px rgba(121, 217, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* SCENARIO LIST */
+#page-archive .scenario-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* SCENARIO CARD */
+#page-archive .scenario-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border: 1px solid rgba(121, 217, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(10, 20, 36, 0.62);
+    backdrop-filter: blur(14px);
+    animation: archiveCardReveal 0.55s ease both;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* ========================================
+   SCENARIO EDITOR — FINAL DESIGN
+======================================== */
+
+/* EDITOR PANEL */
+#page-archive #scenario-editor {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 36px;
+    margin-bottom: 32px;
+
+    border: 1px solid rgba(120, 190, 255, 0.18);
+    border-radius: 18px;
+
+    background: rgba(12, 22, 40, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* EDITOR HEADER */
+#page-archive #scenario-editor .panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+#page-archive #scenario-editor .panel-heading h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+#page-archive #scenario-editor .panel-heading span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #7c9ab8;
+}
+
+/* FORM LAYOUT */
+#page-archive #scenario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 100%;
+    margin: 0;
+}
+
+/* FORM GROUP */
+#page-archive #scenario-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+}
+
+/* LABEL */
+#page-archive #scenario-form label {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    color: #9bb4ce;
+}
+
+/* INPUT + TEXTAREA */
+#page-archive #scenario-form input,
+#page-archive #scenario-form textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 16px 18px;
+
+    font-family: inherit;
+    font-size: 14px;
+    color: #edf8ff;
+
+    background: rgba(5, 13, 27, 0.72);
+
+    border: 1px solid rgba(120, 190, 255, 0.2);
+    border-radius: 10px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* INPUT HEIGHT */
+#page-archive #scenario-form input {
+    min-height: 54px;
+}
+
+/* TEXTAREA */
+#page-archive #scenario-form textarea {
+    min-height: 280px;
+    line-height: 1.8;
+    resize: vertical;
+}
+
+/* PLACEHOLDER */
+#page-archive #scenario-form input::placeholder,
+#page-archive #scenario-form textarea::placeholder {
+    color: #526981;
+}
+
+/* FOCUS */
+#page-archive #scenario-form input:focus,
+#page-archive #scenario-form textarea:focus {
+    border-color: rgba(91, 210, 255, 0.7);
+
+    background: rgba(8, 19, 37, 0.95);
+
+    box-shadow: 0 0 0 3px rgba(91, 210, 255, 0.08);
+}
+
+/* FORM ACTIONS */
+#page-archive #scenario-editor .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 8px;
+}
+
+/* BUTTON BASE */
+#page-archive #scenario-editor .form-actions button {
+    min-height: 48px;
+    padding: 0 24px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* CANCEL */
+#page-archive #cancel-scenario-button {
+    color: #a7bad0;
+
+    background: rgba(18, 31, 50, 0.65);
+    border: 1px solid rgba(120, 160, 200, 0.2);
+}
+
+#page-archive #cancel-scenario-button:hover {
+    color: #ffffff;
+
+    background: rgba(30, 48, 72, 0.9);
+    border-color: rgba(120, 190, 255, 0.35);
+}
+
+/* PUBLISH */
+#page-archive #scenario-editor .form-actions button[type="submit"] {
+    color: #06131f;
+
+    background: linear-gradient(135deg, #72e0ff, #42b9ef);
+    border: 1px solid transparent;
+
+    box-shadow: 0 6px 20px rgba(66, 185, 239, 0.12);
+}
+
+#page-archive #scenario-editor .form-actions button[type="submit"]:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 24px rgba(66, 185, 239, 0.25);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #page-archive #scenario-editor {
+        padding: 22px;
+    }
+
+    #page-archive #scenario-editor .panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #page-archive #scenario-editor .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    #page-archive #scenario-editor .form-actions button {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   SCENARIO DELETE BUTTON
+======================================== */
+
+#page-archive .delete-scenario-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 36px;
+    padding: 0 14px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #ff8f9b;
+
+    background: rgba(255, 75, 95, 0.08);
+    border: 1px solid rgba(255, 90, 110, 0.22);
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#page-archive .delete-scenario-button:hover {
+    color: #ffffff;
+
+    background: rgba(255, 65, 85, 0.18);
+    border-color: rgba(255, 90, 110, 0.55);
+
+    transform: translateY(-1px);
+}
+
+#page-archive .delete-scenario-button:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   DUELIST ARCHIVE — SCENARIO CARDS
+======================================== */
+
+#page-archive .scenario-card {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 28px;
+    margin-bottom: 20px;
+
+    background: rgba(12, 23, 42, 0.72);
+    border: 1px solid rgba(120, 190, 255, 0.14);
+    border-radius: 16px;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+#page-archive .scenario-card:hover {
+    border-color: rgba(100, 205, 255, 0.3);
+    background: rgba(15, 29, 51, 0.85);
+    transform: translateY(-2px);
+}
+
+/* CARD HEADER */
+#page-archive .scenario-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+/* STORY LABEL */
+#page-archive .scenario-label {
+    color: #70d8ff;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+/* TITLE */
+#page-archive .scenario-card h3 {
+    margin: 0 0 12px;
+
+    color: #edf7ff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* CHARACTER */
+#page-archive .scenario-character {
+    margin-bottom: 18px;
+
+    color: #8fa9c4;
+    font-size: 13px;
+}
+
+/* CONTENT */
+#page-archive .scenario-content {
+    color: #bdcde0;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    #page-archive .scenario-card {
+        padding: 20px;
+    }
+
+    #page-archive .scenario-card h3 {
+        font-size: 19px;
+    }
+}
+
+/* ========================================
+   DELETE CONFIRM MODAL
+======================================== */
+
+#page-archive .delete-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+#page-archive .delete-modal.hidden {
+    display: none;
+}
+
+#page-archive .delete-modal-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(3, 8, 18, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+#page-archive .delete-modal-panel {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 440px;
+    box-sizing: border-box;
+
+    padding: 36px;
+
+    text-align: center;
+
+    background: rgba(15, 27, 46, 0.96);
+    border: 1px solid rgba(130, 190, 255, 0.2);
+    border-radius: 20px;
+
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+
+    animation: deleteModalEnter 0.25s ease both;
+}
+
+#page-archive .delete-modal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+
+    color: #ff8292;
+    font-size: 20px;
+
+    background: rgba(255, 75, 95, 0.1);
+    border: 1px solid rgba(255, 100, 120, 0.2);
+    border-radius: 16px;
+}
+
+#page-archive .delete-modal-label {
+    color: #7895b4;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#page-archive #delete-modal-title {
+    margin: 14px 0;
+
+    color: #edf7ff;
+    font-size: 24px;
+    letter-spacing: -0.5px;
+}
+
+#page-archive .delete-modal-panel p {
+    margin: 0;
+
+    color: #91a8c2;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+#page-archive .delete-modal-actions {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+#page-archive .delete-modal-actions button {
+    flex: 1;
+    min-height: 48px;
+
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#page-archive #cancel-delete-button {
+    color: #a7bad0;
+    background: rgba(25, 40, 60, 0.8);
+    border: 1px solid rgba(120, 160, 200, 0.2);
+}
+
+#page-archive #cancel-delete-button:hover {
+    color: #fff;
+    background: rgba(40, 60, 85, 0.9);
+}
+
+#page-archive #confirm-delete-button {
+    color: #fff;
+    background: rgba(220, 65, 85, 0.85);
+    border: 1px solid rgba(255, 100, 120, 0.3);
+}
+
+#page-archive #confirm-delete-button:hover {
+    background: #ef5368;
+    transform: translateY(-2px);
+}
+
+@keyframes deleteModalEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    #page-archive .delete-modal-panel {
+        padding: 26px 20px;
+    }
+
+    #page-archive .delete-modal-actions {
+        flex-direction: column-reverse;
+    }
+}
+
+/* ========================================
+   ARCHIVE EMPTY STATE — CENTER ALIGNMENT
+======================================== */
+
+#page-archive .scenario-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#page-archive .scenario-list .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 220px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#page-archive .scenario-list .empty-state p {
+    display: block;
+    width: auto;
+    margin: 0;
+
+    text-align: center;
+}
+
+/* ========================================
+   CUSTOM CARD REGISTRATION
+======================================== */
+
+/* CARD EDITOR PANEL */
+#page-archive .custom-card-editor {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+
+    margin-top: 12px;
+    padding: 30px;
+
+    background: rgba(5, 14, 29, 0.58);
+    border: 1px solid rgba(121, 217, 255, 0.14);
+    border-radius: 14px;
+}
+
+/* CARD EDITOR HEADER */
+#page-archive .custom-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(121, 217, 255, 0.12);
+}
+
+#page-archive .custom-card-heading h3 {
+    margin: 0;
+
+    color: #dff5ff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#page-archive .custom-card-heading span {
+    color: #6f91ad;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+/* CARD TYPE SELECT */
+#page-archive #scenario-form select {
+    display: block;
+    width: 100%;
+    min-height: 54px;
+    box-sizing: border-box;
+
+    padding: 0 18px;
+
+    font-family: inherit;
+    font-size: 14px;
+    color: #edf8ff;
+
+    background-color: rgba(5, 13, 27, 0.72);
+
+    border: 1px solid rgba(120, 190, 255, 0.2);
+    border-radius: 10px;
+
+    outline: none;
+    cursor: pointer;
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#page-archive #scenario-form select:focus {
+    border-color: rgba(91, 210, 255, 0.7);
+    background-color: rgba(8, 19, 37, 0.95);
+    box-shadow: 0 0 0 3px rgba(91, 210, 255, 0.08);
+}
+
+#page-archive #scenario-form select option {
+    color: #edf8ff;
+    background: #0b1729;
+}
+
+/* CARD DETAIL FIELDS */
+#page-archive .custom-card-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    width: 100%;
+    padding: 24px;
+
+    background: rgba(12, 26, 44, 0.48);
+    border: 1px solid rgba(121, 217, 255, 0.1);
+    border-radius: 12px;
+}
+
+/* HIDDEN CARD FIELDS */
+#page-archive .custom-card-fields.hidden {
+    display: none;
+}
+
+/* CARD EFFECT */
+#page-archive #custom-card-effect {
+    min-height: 180px;
+    line-height: 1.8;
+}
+
+/* CARD SECTION LABELS */
+#page-archive .custom-card-heading h3::before {
+    content: "";
+    display: inline-block;
+
+    width: 4px;
+    height: 14px;
+    margin-right: 10px;
+
+    vertical-align: -2px;
+
+    background: #79d9ff;
+    border-radius: 2px;
+}
+
+/* CARD INPUT HOVER */
+#page-archive .custom-card-editor input:hover,
+#page-archive .custom-card-editor select:hover,
+#page-archive .custom-card-editor textarea:hover {
+    border-color: rgba(121, 217, 255, 0.35);
+}
+
+/* ========================================
+   CUSTOM CARD REGISTRATION — MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+    #page-archive .custom-card-editor {
+        padding: 20px;
+        gap: 22px;
+    }
+
+    #page-archive .custom-card-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #page-archive .custom-card-heading h3 {
+        font-size: 13px;
+    }
+
+    #page-archive .custom-card-fields {
+        padding: 18px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #page-archive .custom-card-editor {
+        padding: 16px;
+    }
+
+    #page-archive .custom-card-fields {
+        padding: 14px;
+    }
+
+    #page-archive .custom-card-heading span {
+        font-size: 9px;
+    }
+}

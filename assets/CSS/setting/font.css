@@ -1,0 +1,53 @@
+/* =========================================
+   KC DUELIST — TYPOGRAPHY
+========================================= */
+
+/* GLOBAL FONT */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* ENGLISH SYSTEM FONT */
+.logo-symbol,
+.logo-text,
+.hero-copy h1,
+.hero-eyebrow,
+.menu-number,
+.menu-info h2,
+.section-label,
+.system-time,
+.header-status,
+.page-heading h1,
+.panel-heading h2,
+.primary-button,
+.secondary-button {
+    font-family: "Orbitron", sans-serif;
+}
+
+/* HEADINGS */
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+}
+
+/* BUTTON */
+button {
+    font-family: inherit;
+}
+
+/* INPUT */
+input,
+textarea,
+select {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* CODE / SYSTEM TEXT */
+code,
+.system-text {
+    font-family: "Orbitron", monospace;
+}

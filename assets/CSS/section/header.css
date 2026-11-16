@@ -1,0 +1,460 @@
+/* ========================================
+   HEADER : KAIBA CORPORATION
+======================================== */
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 50px;
+
+    background: rgba(5, 9, 20, 0.88);
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: var(--white);
+    text-decoration: none;
+}
+
+.logo-symbol {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 800;
+
+    color: var(--cyan);
+
+    border: 1px solid var(--border-active);
+    background: rgba(0, 217, 255, 0.06);
+
+    box-shadow: var(--glow);
+
+    transition: var(--transition);
+}
+
+.logo:hover .logo-symbol {
+    background: rgba(0, 217, 255, 0.15);
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.25);
+    transform: rotate(-5deg);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.logo-text strong {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.logo-text small {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+}
+
+/* NETWORK STATUS */
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+
+    color: var(--text-muted);
+}
+
+/* ONLINE DOT */
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #00ff9d;
+
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.65);
+
+    animation: networkPulse 2s infinite;
+}
+
+/* DUELIST USER */
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    background: rgba(13, 25, 43, 0.65);
+
+    transition: var(--transition);
+}
+
+.header-user:hover {
+    border-color: var(--border-active);
+    background: rgba(0, 217, 255, 0.04);
+}
+
+.user-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+#header-duelist-name {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: var(--cyan-light);
+}
+
+/* ========================================
+   HEADER AUTH RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+    .header-user {
+        gap: 8px;
+        padding: 8px 10px;
+    }
+
+    .header-auth-button {
+        padding: 8px 10px;
+    }
+
+    .user-label {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        gap: 10px;
+    }
+
+    .logo-text strong {
+        font-size: 10px;
+    }
+
+    .logo-text small {
+        font-size: 8px;
+    }
+
+    .header-status {
+        display: none;
+    }
+
+    #header-duelist-name {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .header-auth-button {
+        padding: 8px;
+    }
+
+    .header-auth-button span {
+        display: none;
+    }
+}
+
+/* NETWORK ANIMATION */
+@keyframes networkPulse {
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 255, 157, 0.65);
+    }
+
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 3px rgba(0, 255, 157, 0.2);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .header {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo-symbol {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .logo-text strong {
+        font-size: 11px;
+    }
+
+    .logo-text small {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .header-status {
+        display: none;
+    }
+
+    .header-user {
+        padding: 8px 10px;
+        gap: 8px;
+    }
+
+    .user-label {
+        display: none;
+    }
+}
+
+/* ========================================
+   KC HEADER ACCOUNT SYSTEM
+======================================== */
+
+/* 로그인 상태에 따라 버튼 전환 */
+.header-auth-button[hidden],
+.header-account-button[hidden] {
+    display: none !important;
+}
+
+/* ACCOUNT BUTTON */
+.header-account-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 14px;
+
+    color: var(--cyan-light);
+    background: rgba(13, 25, 43, 0.72);
+
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.header-account-button:hover,
+.header-account-button[aria-expanded="true"] {
+    background: rgba(0, 217, 255, 0.08);
+    border-color: var(--cyan-light);
+}
+
+.header-account-button:active {
+    transform: scale(0.97);
+}
+
+.account-chevron {
+    font-size: 9px;
+    transition: transform 0.25s ease;
+}
+
+.header-account-button[aria-expanded="true"] .account-chevron {
+    transform: rotate(180deg);
+}
+
+/* ACCOUNT MENU */
+.header-user {
+    position: relative;
+}
+
+.header-account-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: 220px;
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    background: rgba(12, 23, 40, 0.97);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease,
+        visibility 0.22s ease;
+
+    z-index: 1000;
+}
+
+.header-account-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* MENU ITEMS */
+.header-account-menu button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    padding: 12px;
+
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.7px;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.header-account-menu button i {
+    width: 14px;
+    color: var(--cyan-light);
+    text-align: center;
+}
+
+.header-account-menu button:hover {
+    color: var(--cyan-light);
+    background: rgba(0, 217, 255, 0.07);
+    border-color: rgba(0, 217, 255, 0.12);
+}
+
+.account-menu-divider {
+    height: 1px;
+    margin: 5px 4px;
+    background: var(--border);
+}
+
+/* LOGOUT */
+#header-logout-button {
+    color: #ff9caa;
+}
+
+#header-logout-button i {
+    color: #ff9caa;
+}
+
+#header-logout-button:hover {
+    color: #ffd0d8;
+    background: rgba(255, 80, 110, 0.08);
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+    .header-account-button {
+        gap: 8px;
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+
+    .header-account-menu {
+        width: 210px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-account-button {
+        gap: 7px;
+        padding: 9px;
+    }
+
+    #header-duelist-name {
+        max-width: 85px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .header-account-menu {
+        right: 0;
+        width: min(220px, calc(100vw - 24px));
+    }
+}
+
+/* AUTH SUBMIT LOADING */
+
+#auth-submit:disabled {
+    opacity: 0.65;
+    cursor: wait;
+    transform: none;
+}
+
+#auth-submit.is-loading {
+    position: relative;
+}
+
+/* ACCOUNT MENU KEYBOARD FOCUS */
+
+.header-account-menu button:focus-visible,
+.header-account-button:focus-visible,
+.header-auth-button:focus-visible {
+    outline: 2px solid var(--cyan-light);
+    outline-offset: 3px;
+}

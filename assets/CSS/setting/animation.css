@@ -1,0 +1,110 @@
+/* ========================================
+   KC CENTRAL SYSTEM ANIMATION
+======================================== */
+
+/* HERO RING ROTATION */
+.ring-1 {
+    animation: ringRotate 30s linear infinite;
+}
+
+.ring-2 {
+    animation: ringRotate 20s linear infinite reverse;
+}
+
+.ring-3 {
+    animation: ringRotate 15s linear infinite;
+}
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* HERO CORE PULSE */
+.hero-core {
+    animation: corePulse 3s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 30px rgba(0, 217, 255, 0.08),
+            inset 0 0 30px rgba(0, 217, 255, 0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 0 50px rgba(0, 217, 255, 0.2),
+            inset 0 0 40px rgba(0, 217, 255, 0.15);
+    }
+}
+
+/* ========================================
+   KC LOBBY ENTRANCE
+======================================== */
+
+.hero-copy {
+    animation: heroFadeUp 1s ease both;
+}
+
+.hero-visual {
+    animation: heroFadeIn 1.4s ease both;
+}
+
+.lobby-menu .menu-card {
+    animation: menuFadeUp 0.8s ease both;
+}
+
+.lobby-menu .menu-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lobby-menu .menu-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lobby-menu .menu-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lobby-menu .menu-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes menuFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

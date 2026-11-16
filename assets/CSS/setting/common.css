@@ -1,0 +1,363 @@
+/* =========================================================
+   KC DUELIST
+   COMMON UI SYSTEM
+========================================================= */
+
+/* 01. GLOBAL */
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* 02. PAGE CONTAINER */
+.container {
+    width: min(1440px, 90%);
+    margin-inline: auto;
+}
+
+.section-container {
+    width: min(1400px, 90%);
+    margin-inline: auto;
+}
+
+/* 03. SECTION SPACING */
+.section {
+    position: relative;
+    padding-block: 100px;
+}
+
+.section-header {
+    margin-bottom: 45px;
+}
+
+.section-header .eyebrow {
+    display: block;
+    margin-bottom: 15px;
+
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--cyan);
+}
+
+.section-header h2 {
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.section-header p {
+    margin-top: 15px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* 04. COMMON BUTTON */
+.btn {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 46px;
+    padding: 13px 24px;
+
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* PRIMARY */
+.btn-primary {
+    color: #020611;
+    background: var(--cyan);
+    border: 1px solid var(--cyan);
+}
+
+.btn-primary:hover {
+    background: var(--cyan-light);
+    border-color: var(--cyan-light);
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* SECONDARY */
+.btn-secondary {
+    color: var(--text-main);
+    background: transparent;
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: rgba(0, 217, 255, 0.04);
+}
+
+/* GHOST */
+.btn-ghost {
+    color: var(--text-muted);
+    background: transparent;
+}
+
+.btn-ghost:hover {
+    color: var(--cyan);
+}
+
+/* 05. COMMON PANEL */
+.panel {
+    position: relative;
+    padding: 30px;
+
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+}
+
+.panel-hover {
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.panel-hover:hover {
+    border-color: var(--border-active);
+    box-shadow: var(--glow);
+    transform: translateY(-3px);
+}
+
+/* 06. PANEL HEADER */
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-header h2 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.panel-header span {
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+/* 07. COMMON BADGE */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    font-family: var(--font-display);
+    font-size: 8px;
+    letter-spacing: 1px;
+
+    color: var(--cyan);
+    background: rgba(0, 217, 255, 0.06);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+/* 08. SYSTEM STATUS */
+.system-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: var(--font-display);
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.system-status .dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+    background: #00ff9d;
+    box-shadow: 0 0 10px #00ff9d;
+}
+
+/* 09. COMMON INPUT */
+.input {
+    width: 100%;
+    min-height: 45px;
+    padding: 12px 15px;
+
+    color: var(--white);
+    background: #050914;
+
+    border: 1px solid var(--border);
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.input::placeholder {
+    color: #526681;
+}
+
+.input:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.08);
+}
+
+/* 10. COMMON DIVIDER */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+}
+
+.divider-cyan {
+    background: linear-gradient(90deg, var(--cyan), transparent);
+}
+
+/* 11. EMPTY STATE */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 220px;
+    padding: 30px;
+
+    text-align: center;
+    color: var(--text-muted);
+
+    border: 1px dashed var(--border);
+}
+
+.empty-state i {
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #425a78;
+}
+
+.empty-state p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* 12. TEXT UTILITIES */
+.text-cyan {
+    color: var(--cyan);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+/* 13. FOCUS */
+.btn:focus-visible,
+.input:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+/* 14. RESPONSIVE */
+@media (max-width: 768px) {
+    .section {
+        padding-block: 65px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .section-header {
+        margin-bottom: 30px;
+    }
+}
+/* ========================================
+   KC PAGE VISIBILITY FIX
+======================================== */
+
+.page {
+    display: none !important;
+}
+
+.page.active {
+    display: block !important;
+}
+
+/* ========================================
+   KC HIDDEN ELEMENTS
+======================================== */
+
+.hidden {
+    display: none !important;
+}
+
+/* ========================================
+   GLOBAL BACK BUTTON
+======================================== */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    min-height: 32px;
+    margin-bottom: 35px;
+    padding: 6px 0;
+
+    color: var(--text-muted, #718096);
+    background: none;
+    border: none;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--cyan);
+}
+
+.back-button i {
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover i {
+    transform: translateX(-5px);
+}

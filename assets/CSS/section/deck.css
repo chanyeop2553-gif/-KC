@@ -1,0 +1,793 @@
+/* ========================================
+   KC DECK REGISTRATION
+======================================== */
+
+/* DECK PAGE */
+#page-deck {
+    background:
+        radial-gradient(circle at 80% 10%, rgba(0, 217, 255, 0.045), transparent 35%), #050912;
+}
+
+#page-deck .page-container {
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    padding: 45px 50px 60px;
+}
+
+/* ========================================
+   PAGE HEADING
+======================================== */
+
+#page-deck .page-heading {
+    margin-bottom: 45px;
+}
+
+#page-deck .section-label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+#page-deck .page-heading h1 {
+    margin-bottom: 15px;
+
+    color: var(--white);
+    font-size: clamp(32px, 4vw, 55px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+#page-deck .page-heading h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 30px rgba(0, 217, 255, 0.15);
+}
+
+#page-deck .page-heading p {
+    color: var(--text-muted, #718096);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   DECK MAIN LAYOUT
+======================================== */
+
+#page-deck .deck-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+/* ========================================
+   COMMON PANEL
+======================================== */
+
+#page-deck .deck-search-panel,
+#page-deck .deck-builder-panel {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 650px;
+
+    padding: 28px;
+
+    background: rgba(10, 18, 32, 0.78);
+    border: 1px solid rgba(0, 217, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#page-deck .deck-search-panel:hover,
+#page-deck .deck-builder-panel:hover {
+    border-color: rgba(0, 217, 255, 0.2);
+}
+
+/* PANEL HEADING */
+
+#page-deck .panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#page-deck .panel-heading h2 {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#page-deck .panel-heading span {
+    color: rgba(0, 217, 255, 0.6);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+/* ========================================
+   CARD SEARCH
+======================================== */
+
+#page-deck .card-search-form {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 52px;
+
+    margin-bottom: 20px;
+
+    background: rgba(3, 8, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#page-deck .card-search-form:focus-within {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.07);
+}
+
+#page-deck #card-search-input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 18px;
+
+    color: var(--white);
+    background: transparent;
+    border: none;
+    outline: none;
+
+    font-size: 12px;
+    letter-spacing: 0.3px;
+}
+
+#page-deck #card-search-input::placeholder {
+    color: rgba(140, 169, 188, 0.4);
+}
+
+#page-deck #card-search-input::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+#page-deck .card-search-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 100%;
+
+    color: var(--cyan);
+    background: rgba(0, 217, 255, 0.05);
+    border: none;
+    border-left: 1px solid rgba(0, 217, 255, 0.12);
+
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#page-deck .card-search-form button:hover {
+    background: rgba(0, 217, 255, 0.15);
+}
+
+/* SEARCH RESULT HEADER */
+
+#page-deck .search-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+    color: rgba(140, 169, 188, 0.55);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+#page-deck #search-result-count {
+    color: var(--cyan);
+}
+
+/* SEARCH RESULTS */
+
+#page-deck .card-search-results {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+
+    flex: 1;
+    min-height: 350px;
+    max-height: 650px;
+
+    align-content: start;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 5px 5px 15px 0;
+}
+
+/* SCROLLBAR */
+
+#page-deck .card-search-results::-webkit-scrollbar,
+#page-deck .my-deck-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+#page-deck .card-search-results::-webkit-scrollbar-track,
+#page-deck .my-deck-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#page-deck .card-search-results::-webkit-scrollbar-thumb,
+#page-deck .my-deck-list::-webkit-scrollbar-thumb {
+    background: rgba(0, 217, 255, 0.25);
+}
+
+/* ========================================
+   CARD RESULT ITEM
+   JS에서 생성할 검색 카드 요소
+======================================== */
+
+#page-deck .card-result {
+    position: relative;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+
+    background: rgba(3, 8, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+#page-deck .card-result:hover {
+    transform: translateY(-4px);
+
+    background: rgba(0, 217, 255, 0.045);
+    border-color: rgba(0, 217, 255, 0.4);
+}
+
+/* CARD IMAGE */
+
+#page-deck .card-result img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 59 / 86;
+
+    object-fit: contain;
+
+    margin-bottom: 12px;
+
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* CARD NAME */
+
+#page-deck .card-result .card-name {
+    margin-bottom: 8px;
+
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    word-break: keep-all;
+}
+
+/* CARD TYPE */
+
+#page-deck .card-result .card-type {
+    margin-bottom: 10px;
+
+    color: rgba(140, 169, 188, 0.6);
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+/* ADD CARD BUTTON */
+
+#page-deck .card-result .add-card-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 32px;
+
+    margin-top: auto;
+    padding: 8px;
+
+    color: var(--cyan);
+    background: rgba(0, 217, 255, 0.06);
+    border: 1px solid rgba(0, 217, 255, 0.2);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#page-deck .card-result .add-card-button:hover {
+    color: #050912;
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+#page-deck .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    grid-column: 1 / -1;
+
+    min-height: 250px;
+    padding: 30px;
+
+    color: rgba(140, 169, 188, 0.4);
+    text-align: center;
+}
+
+#page-deck .empty-state i {
+    margin-bottom: 20px;
+
+    color: rgba(0, 217, 255, 0.35);
+    font-size: 30px;
+}
+
+#page-deck .empty-state p {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   DECK FORMAT
+======================================== */
+
+#page-deck .deck-format {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+#page-deck .deck-format label {
+    color: rgba(140, 169, 188, 0.65);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+#page-deck #deck-format-select {
+    min-width: 150px;
+    padding: 10px 12px;
+
+    color: var(--cyan);
+    background: #080e1a;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    outline: none;
+    cursor: pointer;
+}
+
+#page-deck #deck-format-select option {
+    color: var(--white);
+    background: #080e1a;
+}
+
+/* ========================================
+   DECK COUNTER
+======================================== */
+
+#page-deck .deck-counter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+#page-deck .counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 115px;
+    padding: 18px;
+
+    background: rgba(0, 217, 255, 0.025);
+    border: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+#page-deck .counter-box span {
+    margin-bottom: 10px;
+
+    color: rgba(140, 169, 188, 0.65);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+#page-deck .counter-box strong {
+    margin-bottom: 8px;
+
+    color: var(--cyan);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#page-deck .counter-box small {
+    color: rgba(140, 169, 188, 0.4);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   DECK TABS
+======================================== */
+
+#page-deck .deck-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#page-deck .deck-tab {
+    position: relative;
+
+    padding: 15px 10px;
+
+    color: rgba(140, 169, 188, 0.5);
+    background: transparent;
+    border: none;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#page-deck .deck-tab:hover {
+    color: var(--white);
+}
+
+#page-deck .deck-tab.active {
+    color: var(--cyan);
+}
+
+#page-deck .deck-tab.active::after {
+    content: "";
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--cyan);
+    box-shadow: 0 0 12px rgba(0, 217, 255, 0.5);
+}
+
+/* ========================================
+   MY DECK LIST
+======================================== */
+
+#page-deck .my-deck-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    flex: 1;
+    min-height: 250px;
+    max-height: 480px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 5px 5px 15px 0;
+}
+
+/* DECK CARD ITEM
+   JS에서 생성할 덱 카드 행
+======================================== */
+
+#page-deck .deck-card-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px;
+
+    background: rgba(3, 8, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition: border-color 0.25s ease;
+}
+
+#page-deck .deck-card-item:hover {
+    border-color: rgba(0, 217, 255, 0.2);
+}
+
+#page-deck .deck-card-item img {
+    width: 42px;
+    height: 60px;
+
+    object-fit: cover;
+}
+
+#page-deck .deck-card-item .deck-card-name {
+    flex: 1;
+    min-width: 0;
+
+    color: var(--white);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+#page-deck .deck-card-item .deck-card-quantity {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#page-deck .deck-card-item .remove-card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-width: 30px;
+    padding: 0 8px;
+    gap: 5px;
+    height: 30px;
+
+    color: rgba(255, 100, 100, 0.65);
+    background: transparent;
+    border: 1px solid rgba(255, 100, 100, 0.15);
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+#page-deck .deck-card-item .remove-card-button:hover {
+    color: #ff6464;
+    background: rgba(255, 100, 100, 0.1);
+    border-color: rgba(255, 100, 100, 0.5);
+}
+
+#page-deck .deck-card-item .remove-card-button .remove-label {
+    display: none;
+}
+
+#page-deck .deck-card-item .remove-card-button:hover .remove-label {
+    display: inline;
+}
+
+/* ========================================
+   DECK ACTIONS
+======================================== */
+
+#page-deck .deck-actions {
+    display: grid;
+    grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.5fr);
+    gap: 12px;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+#page-deck .secondary-button,
+#page-deck .primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 48px;
+    padding: 12px 15px;
+
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* CLEAR DECK */
+
+#page-deck .secondary-button {
+    color: rgba(140, 169, 188, 0.7);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#page-deck .secondary-button:hover {
+    color: #ff6464;
+    background: rgba(255, 100, 100, 0.06);
+    border-color: rgba(255, 100, 100, 0.35);
+}
+
+/* SUBMIT */
+
+#page-deck .primary-button {
+    color: #050912;
+    background: var(--cyan);
+    border: 1px solid var(--cyan);
+}
+
+#page-deck .primary-button:hover {
+    background: #7beaff;
+    border-color: #7beaff;
+
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.2);
+}
+
+#page-deck .primary-button i {
+    transition: transform 0.3s ease;
+}
+
+#page-deck .primary-button:hover i {
+    transform: translateX(5px);
+}
+
+/* ========================================
+   DECK RESPONSIVE
+======================================== */
+
+/* TABLET */
+
+@media (max-width: 1200px) {
+    #page-deck .page-container {
+        padding: 40px 30px 50px;
+    }
+
+    #page-deck .deck-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #page-deck .deck-search-panel,
+    #page-deck .deck-builder-panel {
+        min-height: 550px;
+    }
+
+    #page-deck .card-search-results {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-height: 500px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    #page-deck .page-container {
+        padding: 30px 20px 40px;
+    }
+
+    #page-deck .page-heading {
+        margin-bottom: 30px;
+    }
+
+    #page-deck .deck-search-panel,
+    #page-deck .deck-builder-panel {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    #page-deck .panel-heading {
+        align-items: flex-start;
+    }
+
+    #page-deck .panel-heading span {
+        text-align: right;
+    }
+
+    #page-deck .card-search-results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: 250px;
+        max-height: 450px;
+        gap: 12px;
+    }
+
+    #page-deck .deck-counter {
+        gap: 8px;
+    }
+
+    #page-deck .counter-box {
+        min-height: 100px;
+        padding: 12px;
+    }
+
+    #page-deck .counter-box strong {
+        font-size: 27px;
+    }
+
+    #page-deck .deck-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media (max-width: 420px) {
+    #page-deck .page-container {
+        padding: 25px 15px 35px;
+    }
+
+    #page-deck .deck-search-panel,
+    #page-deck .deck-builder-panel {
+        padding: 15px;
+    }
+
+    #page-deck .page-heading h1 {
+        font-size: 30px;
+    }
+
+    #page-deck .card-result {
+        padding: 8px;
+    }
+
+    #page-deck .card-result .card-name {
+        font-size: 10px;
+    }
+
+    #page-deck .deck-format {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #page-deck #deck-format-select {
+        width: 100%;
+    }
+}

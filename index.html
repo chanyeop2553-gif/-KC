@@ -1,0 +1,1146 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>KAIBA CORPORATION | DUELIST NETWORK</title>
+
+        <!-- 기존 CSS -->
+        <link rel="stylesheet" href="assets/CSS/setting/reset.css" />
+        <link rel="stylesheet" href="assets/CSS/setting/common.css" />
+        <link rel="stylesheet" href="assets/CSS/setting/animation.css" />
+        <link rel="stylesheet" href="assets/CSS/setting/responsive.css" />
+        <link rel="stylesheet" href="assets/CSS/setting/variables.css" />
+
+        <!--Section CSS -->
+        <link rel="stylesheet" href="assets/CSS/section/intro.css" />
+        <link rel="stylesheet" href="assets/CSS/section/header.css" />
+        <link rel="stylesheet" href="assets/CSS/section/auth.css" />
+        <link rel="stylesheet" href="assets/CSS/section/lobby.css" />
+        <link rel="stylesheet" href="assets/CSS/section/deck.css" />
+        <link rel="stylesheet" href="assets/CSS/section/archive.css" />
+        <link rel="stylesheet" href="assets/CSS/section/live.css" />
+        <link rel="stylesheet" href="assets/CSS/section/identity.css" />
+        <link rel="stylesheet" href="assets/CSS/section/modal.css" />
+        <link rel="stylesheet" href="assets/CSS/section/footer.css" />
+        <link rel="stylesheet" href="assets/css/section/toast.css" />
+
+        <!-- FAVICON -->
+        <link rel="icon" type="image/png" href="./assets/icon/네온 블루 KC 오로라 엠블럼.png" />
+    </head>
+
+    <body>
+        <!-- =========================
+        KC INTRO SCREEN
+    ========================= -->
+        <div id="intro-screen" class="intro-screen">
+            <!-- INTRO LOGO -->
+            <div class="intro-logo">
+                <span>KAIBA CORPORATION</span>
+                <h1>KC</h1>
+                <p>DUELIST NETWORK</p>
+            </div>
+
+            <!-- INTRO CARD -->
+            <div class="intro-card">
+                <div class="intro-card-inner">
+                    <!-- CARD FRONT -->
+                    <div class="intro-card-front">
+                        <img
+                            id="intro-card-image"
+                            src="assets/img/cards/dark-magician.jpg"
+                            alt="Dark Magician"
+                        />
+                    </div>
+
+                    <!-- CARD BACK -->
+                    <div class="intro-card-back">
+                        <img src="assets/img/cards/card-back.jpg" alt="Yu-Gi-Oh Card Back" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOADING -->
+            <div class="intro-loading">
+                <span></span>
+            </div>
+        </div>
+
+        <!-- =========================
+        KC MAIN SCREEN
+    ========================= -->
+        <div id="main-screen" class="main-screen">
+            <header class="header">
+                <a href="#" class="logo" data-page="lobby">
+                    <span class="logo-symbol">KC</span>
+                    <span class="logo-text">
+                        <strong>KAIBA CORPORATION</strong>
+                        <small>DUELIST NETWORK</small>
+                    </span>
+                </a>
+
+                <div class="header-status">
+                    <span class="status-dot"></span>
+                    KC NETWORK ONLINE
+                </div>
+
+                <div class="header-user" id="header-user">
+                    <!-- 로그인 전 -->
+                    <button id="header-auth-button" class="header-auth-button" type="button">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>LOGIN</span>
+                    </button>
+
+                    <!-- 로그인 후 -->
+                    <button
+                        id="header-account-button"
+                        class="header-account-button"
+                        type="button"
+                        aria-expanded="false"
+                    >
+                        <i class="fa-solid fa-user"></i>
+                        <span id="header-duelist-name">DUELIST</span>
+                        <i class="fa-solid fa-chevron-down account-chevron"></i>
+                    </button>
+
+                    <!-- 사용자 메뉴 -->
+                    <div id="header-account-menu" class="header-account-menu">
+                        <button type="button" data-page="identity">
+                            <i class="fa-solid fa-id-card"></i>
+                            DUELIST IDENTITY
+                        </button>
+
+                        <button type="button" data-page="deck">
+                            <i class="fa-solid fa-layer-group"></i>
+                            MY DECKS
+                        </button>
+
+                        <div class="account-menu-divider"></div>
+
+                        <button type="button" id="header-logout-button">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            LOGOUT
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main id="app">
+                <!-- =====================================
+            01. MAIN LOBBY
+        ====================================== -->
+                <section id="page-lobby" class="page active">
+                    <div class="lobby-background">
+                        <div class="background-grid"></div>
+                        <div class="background-glow"></div>
+                    </div>
+
+                    <div class="lobby-content">
+                        <div class="lobby-top">
+                            <div class="lobby-label">
+                                <span class="line"></span>
+                                KC DUELIST SYSTEM
+                            </div>
+
+                            <div class="system-time">
+                                <span>NETWORK STATUS</span>
+                                <strong>CONNECTED</strong>
+                            </div>
+                        </div>
+
+                        <div class="lobby-hero">
+                            <div class="hero-copy">
+                                <p class="hero-eyebrow">WELCOME TO KAIBA CORPORATION</p>
+
+                                <h1>
+                                    THE NEXT<br />
+                                    <span>GENERATION</span><br />
+                                    OF DUELISTS.
+                                </h1>
+
+                                <p class="hero-description">
+                                    Your deck. Your identity. Your legacy.<br />
+                                    Welcome to the Duelist Network.
+                                </p>
+
+                                <div class="hero-bottom">
+                                    <span>EST. KAIBA CORPORATION</span>
+                                    <span>DUELIST NETWORK / 01</span>
+                                </div>
+                            </div>
+
+                            <div class="hero-visual">
+                                <div class="hero-ring ring-1"></div>
+                                <div class="hero-ring ring-2"></div>
+                                <div class="hero-ring ring-3"></div>
+
+                                <div class="hero-core">
+                                    <span>KC</span>
+                                </div>
+
+                                <div class="visual-caption">
+                                    <span>KC CENTRAL SYSTEM</span>
+                                    <small>IDENTITY VERIFIED</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MAIN MENU -->
+                        <div class="lobby-menu">
+                            <button class="menu-card" data-page="deck">
+                                <div class="menu-number">01</div>
+
+                                <div class="menu-icon">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                </div>
+
+                                <div class="menu-info">
+                                    <h2>DUELIST DECK</h2>
+                                    <p>Register your deck</p>
+                                </div>
+
+                                <div class="menu-arrow">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </button>
+
+                            <button class="menu-card" data-page="archive">
+                                <div class="menu-number">02</div>
+
+                                <div class="menu-icon">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+
+                                <div class="menu-info">
+                                    <h2>DUELIST ARCHIVE</h2>
+                                    <p>Create your own scenario</p>
+                                </div>
+
+                                <div class="menu-arrow">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </button>
+
+                            <button class="menu-card" data-page="live">
+                                <div class="menu-number">03</div>
+
+                                <div class="menu-icon">
+                                    <i class="fa-solid fa-tower-broadcast"></i>
+                                </div>
+
+                                <div class="menu-info">
+                                    <h2>KC LIVE</h2>
+                                    <p>Enter the live network</p>
+                                </div>
+
+                                <div class="menu-arrow">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </button>
+
+                            <button class="menu-card" data-page="identity">
+                                <div class="menu-number">04</div>
+
+                                <div class="menu-icon">
+                                    <i class="fa-solid fa-id-card"></i>
+                                </div>
+
+                                <div class="menu-info">
+                                    <h2>DUELIST ID</h2>
+                                    <p>Manage your identity</p>
+                                </div>
+
+                                <div class="menu-arrow">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </button>
+                        </div>
+
+                        <footer class="lobby-footer">
+                            <span>© KAIBA CORPORATION</span>
+                            <span>ALL DUELISTS ARE SUBJECT TO KC REGULATIONS.</span>
+                            <span>VERSION 1.0.0</span>
+                        </footer>
+                    </div>
+                </section>
+
+                <!-- =====================================
+02. DECK REGISTRATION
+        ====================================== -->
+                <section id="page-deck" class="page">
+                    <div class="page-container">
+                        <div class="page-heading">
+                            <button class="back-button" data-page="lobby">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                RETURN TO LOBBY
+                            </button>
+
+                            <span class="section-label">DUELIST SYSTEM / 01</span>
+
+                            <h1>DECK <span>REGISTRATION</span></h1>
+
+                            <p>Submit your deck for Kaiba Corporation verification.</p>
+                        </div>
+
+                        <div class="deck-layout">
+                            <!-- CARD SEARCH -->
+                            <div class="deck-search-panel">
+                                <div class="panel-heading">
+                                    <h2>CARD DATABASE</h2>
+                                    <span>YGOPRODECK API</span>
+                                </div>
+
+                                <form id="card-search-form" class="card-search-form">
+                                    <input
+                                        type="search"
+                                        id="card-search-input"
+                                        placeholder="Search card name..."
+                                        autocomplete="off"
+                                    />
+
+                                    <button type="submit" aria-label="Search cards">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+
+                                <div class="search-filter">
+                                    <span>SEARCH RESULT</span>
+                                    <span id="search-result-count">0 CARDS</span>
+                                </div>
+
+                                <div id="card-search-results" class="card-search-results">
+                                    <div class="empty-state">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <p>Search cards to begin.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- DECK BUILDER -->
+                            <div class="deck-builder-panel">
+                                <div class="panel-heading">
+                                    <h2>MY DECK</h2>
+                                    <span>DECK BUILDER</span>
+                                </div>
+
+                                <div class="deck-format">
+                                    <label for="deck-format-select"> DUEL FORMAT </label>
+
+                                    <select id="deck-format-select">
+                                        <option value="master">MASTER DUEL</option>
+                                        <option value="duel-links">DUEL LINKS</option>
+                                        <option value="ocg">OCG / TCG</option>
+                                        <option value="custom">CUSTOM</option>
+                                    </select>
+                                </div>
+
+                                <div class="deck-counter">
+                                    <div class="counter-box">
+                                        <span>MAIN DECK</span>
+                                        <strong id="main-deck-count">0</strong>
+                                        <small>40 - 60 CARDS</small>
+                                    </div>
+
+                                    <div class="counter-box">
+                                        <span>EXTRA DECK</span>
+                                        <strong id="extra-deck-count">0</strong>
+                                        <small>0 - 15 CARDS</small>
+                                    </div>
+                                </div>
+
+                                <div class="deck-tabs">
+                                    <button class="deck-tab active" data-deck-tab="main">
+                                        MAIN DECK
+                                    </button>
+
+                                    <button class="deck-tab" data-deck-tab="extra">
+                                        EXTRA DECK
+                                    </button>
+                                </div>
+
+                                <div id="my-deck-list" class="my-deck-list">
+                                    <div class="empty-state">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                        <p>Your deck is empty.</p>
+                                    </div>
+                                </div>
+
+                                <div class="deck-actions">
+                                    <button id="clear-deck-button" class="secondary-button">
+                                        CLEAR DECK
+                                    </button>
+
+                                    <button id="submit-deck-button" class="primary-button">
+                                        SUBMIT FOR REVIEW
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =====================================
+            03. DUELIST ARCHIVE
+        ====================================== -->
+                <section id="page-archive" class="page">
+                    <div class="page-container">
+                        <div class="page-heading">
+                            <button class="back-button" data-page="lobby">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                RETURN TO LOBBY
+                            </button>
+
+                            <span class="section-label">DUELIST SYSTEM / 02</span>
+
+                            <h1>DUELIST <span>ARCHIVE</span></h1>
+
+                            <p>Every Duelist has a story worth telling.</p>
+                        </div>
+
+                        <div class="archive-toolbar">
+                            <div class="archive-intro">
+                                <h2>COMMUNITY STORIES</h2>
+                                <p>Explore scenarios created by Duelists.</p>
+                            </div>
+
+                            <button id="create-scenario-button" class="primary-button">
+                                CREATE SCENARIO
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                        <!-- SCENARIO WRITE FORM -->
+                        <div id="scenario-editor" class="scenario-editor hidden">
+                            <div class="panel-heading">
+                                <h2>NEW SCENARIO</h2>
+                                <span>AUTHORING SYSTEM</span>
+                            </div>
+
+                            <form id="scenario-form">
+                                <div class="form-group">
+                                    <label for="scenario-title">TITLE</label>
+                                    <input
+                                        type="text"
+                                        id="scenario-title"
+                                        maxlength="100"
+                                        placeholder="Enter scenario title"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="scenario-character">CHARACTER</label>
+                                    <input
+                                        type="text"
+                                        id="scenario-character"
+                                        placeholder="Character name"
+                                    />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="scenario-content">SCENARIO</label>
+                                    <textarea
+                                        id="scenario-content"
+                                        rows="8"
+                                        placeholder="Write your story..."
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <!-- CUSTOM CARD REGISTRATION -->
+                                <div class="custom-card-editor">
+                                    <div class="custom-card-heading">
+                                        <h3>CUSTOM CARD REGISTRATION</h3>
+                                        <span>DUELIST CARD SYSTEM</span>
+                                    </div>
+
+                                    <!-- CARD NAME -->
+                                    <div class="form-group">
+                                        <label for="custom-card-name">CARD NAME</label>
+                                        <input
+                                            type="text"
+                                            id="custom-card-name"
+                                            maxlength="100"
+                                            placeholder="Enter custom card name"
+                                        />
+                                    </div>
+
+                                    <!-- CARD TYPE -->
+                                    <div class="form-group">
+                                        <label for="custom-card-type">CARD TYPE</label>
+                                        <select id="custom-card-type">
+                                            <option value="">SELECT CARD TYPE</option>
+                                            <option value="monster">MONSTER</option>
+                                            <option value="spell">SPELL</option>
+                                            <option value="trap">TRAP</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- MONSTER DETAILS -->
+                                    <div
+                                        id="custom-monster-fields"
+                                        class="custom-card-fields hidden"
+                                    >
+                                        <div class="form-group">
+                                            <label for="custom-card-attribute">ATTRIBUTE</label>
+                                            <select id="custom-card-attribute">
+                                                <option value="">SELECT ATTRIBUTE</option>
+                                                <option value="DARK">DARK</option>
+                                                <option value="LIGHT">LIGHT</option>
+                                                <option value="EARTH">EARTH</option>
+                                                <option value="WATER">WATER</option>
+                                                <option value="FIRE">FIRE</option>
+                                                <option value="WIND">WIND</option>
+                                                <option value="DIVINE">DIVINE</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="custom-card-race">TYPE / RACE</label>
+                                            <input
+                                                type="text"
+                                                id="custom-card-race"
+                                                placeholder="Dragon / Warrior / Spellcaster..."
+                                            />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="custom-card-level"
+                                                >LEVEL / RANK / LINK</label
+                                            >
+                                            <input
+                                                type="number"
+                                                id="custom-card-level"
+                                                min="0"
+                                                max="13"
+                                                placeholder="Enter level"
+                                            />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="custom-card-atk">ATK</label>
+                                            <input
+                                                type="number"
+                                                id="custom-card-atk"
+                                                min="0"
+                                                placeholder="0"
+                                            />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="custom-card-def">DEF</label>
+                                            <input
+                                                type="number"
+                                                id="custom-card-def"
+                                                min="0"
+                                                placeholder="0"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <!-- SPELL DETAILS -->
+                                    <div id="custom-spell-fields" class="custom-card-fields hidden">
+                                        <div class="form-group">
+                                            <label for="custom-spell-type">SPELL TYPE</label>
+                                            <select id="custom-spell-type">
+                                                <option value="normal">NORMAL</option>
+                                                <option value="continuous">CONTINUOUS</option>
+                                                <option value="equip">EQUIP</option>
+                                                <option value="quick-play">QUICK-PLAY</option>
+                                                <option value="field">FIELD</option>
+                                                <option value="ritual">RITUAL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- TRAP DETAILS -->
+                                    <div id="custom-trap-fields" class="custom-card-fields hidden">
+                                        <div class="form-group">
+                                            <label for="custom-trap-type">TRAP TYPE</label>
+                                            <select id="custom-trap-type">
+                                                <option value="normal">NORMAL</option>
+                                                <option value="continuous">CONTINUOUS</option>
+                                                <option value="counter">COUNTER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD EFFECT -->
+                                    <div class="form-group">
+                                        <label for="custom-card-effect"
+                                            >CARD EFFECT / DESCRIPTION</label
+                                        >
+                                        <textarea
+                                            id="custom-card-effect"
+                                            rows="5"
+                                            placeholder="Write card effect or description..."
+                                        ></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- ADD CUSTOM CARD -->
+                                <div class="custom-card-actions">
+                                    <button
+                                        type="button"
+                                        id="add-custom-card-button"
+                                        class="secondary-button"
+                                    >
+                                        <i class="fa-solid fa-plus"></i>
+                                        ADD CARD TO SCENARIO
+                                    </button>
+                                </div>
+
+                                <!-- REGISTERED CUSTOM CARDS -->
+                                <div id="custom-card-list" class="custom-card-list">
+                                    <div class="custom-card-empty">NO CUSTOM CARDS ADDED</div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button
+                                        type="button"
+                                        id="cancel-scenario-button"
+                                        class="secondary-button"
+                                    >
+                                        CANCEL
+                                    </button>
+
+                                    <button type="submit" class="primary-button">
+                                        PUBLISH SCENARIO
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- SCENARIO LIST -->
+                        <div id="scenario-list" class="scenario-list">
+                            <div class="empty-state">
+                                <i class="fa-solid fa-book-open"></i>
+                                <p>No scenarios registered yet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DELETE CONFIRM MODAL -->
+                    <div id="scenario-delete-modal" class="delete-modal hidden">
+                        <div class="delete-modal-backdrop"></div>
+
+                        <div
+                            class="delete-modal-panel"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="delete-modal-title"
+                        >
+                            <div class="delete-modal-icon">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+
+                            <span class="delete-modal-label">DUELIST ARCHIVE</span>
+
+                            <h2 id="delete-modal-title">DELETE SCENARIO?</h2>
+
+                            <p>
+                                This scenario will be permanently removed.
+                                <br />
+                                This action cannot be undone.
+                            </p>
+
+                            <div class="delete-modal-actions">
+                                <button
+                                    type="button"
+                                    id="cancel-delete-button"
+                                    class="secondary-button"
+                                >
+                                    CANCEL
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="confirm-delete-button"
+                                    class="danger-button"
+                                >
+                                    DELETE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =====================================
+     04. KC LIVE
+====================================== -->
+                <section id="page-live" class="page">
+                    <div class="page-container">
+                        <!-- PAGE HEADER -->
+                        <div class="page-heading">
+                            <button class="back-button" data-page="lobby">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                RETURN TO LOBBY
+                            </button>
+
+                            <span class="section-label">DUELIST SYSTEM / 03</span>
+
+                            <h1>KC <span>LIVE</span></h1>
+
+                            <p>The Duelist Network's Parody Archive.</p>
+                        </div>
+
+                        <!-- LIVE CONTENT -->
+                        <div class="live-content">
+                            <!-- LIVE HEADER -->
+                            <div class="live-header">
+                                <div class="live-header-info">
+                                    <span class="live-label">
+                                        <span class="live-status-dot"></span>
+                                        DUELIST PARODY ARCHIVE
+                                    </span>
+
+                                    <h2>PARODY <span>FEED</span></h2>
+
+                                    <p>
+                                        Hilarious scenarios and conversations from the Yu-Gi-Oh!
+                                        universe.
+                                    </p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    id="live-create-button"
+                                    class="primary-button"
+                                >
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    CREATE PARODY
+                                </button>
+                            </div>
+
+                            <!-- PARODY CATEGORY FILTER -->
+                            <div class="live-filter" role="tablist" aria-label="Parody categories">
+                                <button
+                                    type="button"
+                                    class="live-filter-button active"
+                                    data-live-filter="all"
+                                    aria-selected="true"
+                                >
+                                    ALL PARODIES
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="live-filter-button"
+                                    data-live-filter="duelist"
+                                    aria-selected="false"
+                                >
+                                    DUELIST
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="live-filter-button"
+                                    data-live-filter="kaiba"
+                                    aria-selected="false"
+                                >
+                                    KAIBA
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="live-filter-button"
+                                    data-live-filter="5ds"
+                                    aria-selected="false"
+                                >
+                                    5D'S
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="live-filter-button"
+                                    data-live-filter="card"
+                                    aria-selected="false"
+                                >
+                                    CARD
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="live-filter-button"
+                                    data-live-filter="other"
+                                    aria-selected="false"
+                                >
+                                    OTHER
+                                </button>
+                            </div>
+
+                            <!-- PARODY LIST -->
+                            <div id="live-parody-list" class="live-parody-list" aria-live="polite">
+                                <!-- JS renders parody cards -->
+                            </div>
+
+                            <!-- PARODY VIEWER -->
+                            <div id="live-parody-viewer" class="live-parody-viewer hidden">
+                                <div class="live-viewer-header">
+                                    <button type="button" id="live-viewer-back" class="back-button">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                        BACK TO FEED
+                                    </button>
+
+                                    <span class="live-viewer-label">
+                                        PARODY SCRIPT / READING MODE
+                                    </span>
+                                </div>
+
+                                <div class="live-viewer-content">
+                                    <span id="live-viewer-category" class="live-parody-category">
+                                        KAIBA CORPORATION
+                                    </span>
+
+                                    <h2 id="live-viewer-title">Parody Title</h2>
+
+                                    <div id="live-viewer-dialogue" class="live-viewer-dialogue">
+                                        <!-- JS inserts dialogue here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PARODY EDITOR -->
+                            <div id="live-parody-editor" class="live-parody-editor hidden">
+                                <div class="live-editor-header">
+                                    <span class="live-editor-label"> AUTHORING SYSTEM </span>
+
+                                    <h2>CREATE <span>PARODY</span></h2>
+
+                                    <p>Write your own Yu-Gi-Oh! parody scenario.</p>
+                                </div>
+
+                                <form id="live-parody-form">
+                                    <!-- TITLE -->
+                                    <div class="live-form-group">
+                                        <label for="live-parody-title"> PARODY TITLE </label>
+
+                                        <input
+                                            type="text"
+                                            id="live-parody-title"
+                                            placeholder="Enter parody title..."
+                                            maxlength="100"
+                                            required
+                                        />
+                                    </div>
+
+                                    <!-- CATEGORY -->
+                                    <div class="live-form-group">
+                                        <label for="live-parody-category"> CATEGORY </label>
+
+                                        <select id="live-parody-category" required>
+                                            <option value="duelist">DUELIST</option>
+                                            <option value="kaiba">KAIBA</option>
+                                            <option value="5ds">YU-GI-OH! 5D'S</option>
+                                            <option value="card">CARD</option>
+                                            <option value="other">OTHER</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- CHARACTERS -->
+                                    <div class="live-form-group">
+                                        <label for="live-parody-characters"> CHARACTERS </label>
+
+                                        <input
+                                            type="text"
+                                            id="live-parody-characters"
+                                            placeholder="e.g. SETO KAIBA, JACK ATLAS"
+                                            maxlength="150"
+                                            required
+                                        />
+                                    </div>
+
+                                    <!-- DESCRIPTION -->
+                                    <div class="live-form-group">
+                                        <label for="live-parody-description"> DESCRIPTION </label>
+
+                                        <textarea
+                                            id="live-parody-description"
+                                            placeholder="Briefly describe your parody..."
+                                            rows="3"
+                                            maxlength="300"
+                                        ></textarea>
+                                    </div>
+
+                                    <!-- SCRIPT -->
+                                    <div class="live-form-group">
+                                        <label for="live-parody-script"> PARODY SCRIPT </label>
+
+                                        <textarea
+                                            id="live-parody-script"
+                                            placeholder="Character: Dialogue..."
+                                            rows="12"
+                                            required
+                                        ></textarea>
+
+                                        <p class="live-form-hint">
+                                            Use Character: Dialogue format. Unmarked lines will be
+                                            spoken by SETO KAIBA.
+                                        </p>
+                                    </div>
+
+                                    <!-- ACTIONS -->
+                                    <div class="live-editor-actions">
+                                        <button
+                                            type="button"
+                                            id="live-editor-cancel"
+                                            class="secondary-button"
+                                        >
+                                            CANCEL
+                                        </button>
+
+                                        <button type="submit" class="primary-button">
+                                            <i class="fa-solid fa-paper-plane"></i>
+                                            PUBLISH PARODY
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =====================================
+            05. DUELIST ID
+        ====================================== -->
+                <section id="page-identity" class="page">
+                    <div class="page-container">
+                        <div class="page-heading">
+                            <button class="back-button" data-page="lobby">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                RETURN TO LOBBY
+                            </button>
+
+                            <span class="section-label">DUELIST SYSTEM / 04</span>
+
+                            <h1>DUELIST <span>ID</span></h1>
+
+                            <p>Your identity within Kaiba Corporation.</p>
+                        </div>
+
+                        <div class="identity-layout">
+                            <!-- ID PREVIEW -->
+                            <div class="identity-card">
+                                <div class="identity-card-top">
+                                    <span>KAIBA CORPORATION</span>
+                                    <span>KC / ID</span>
+                                </div>
+
+                                <div class="identity-card-emblem">KC</div>
+
+                                <div class="identity-card-info">
+                                    <span>AUTHORIZED DUELIST</span>
+
+                                    <h2 id="id-preview-name">GUEST DUELIST</h2>
+
+                                    <p id="id-preview-number">KC-000000</p>
+                                </div>
+
+                                <div class="identity-card-bottom">
+                                    <span>DUELIST NETWORK</span>
+                                    <span>VERIFIED</span>
+                                </div>
+                            </div>
+
+                            <!-- ID CUSTOMIZATION -->
+                            <div class="identity-editor">
+                                <div class="panel-heading">
+                                    <h2>IDENTITY SETTINGS</h2>
+                                    <span>PROFILE EDITOR</span>
+                                </div>
+
+                                <form id="identity-form">
+                                    <div class="form-group">
+                                        <label for="duelist-name"> DUELIST NAME </label>
+
+                                        <input
+                                            type="text"
+                                            id="duelist-name"
+                                            maxlength="24"
+                                            placeholder="Enter your name"
+                                            required
+                                        />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="duelist-title"> DUELIST TITLE </label>
+
+                                        <input
+                                            type="text"
+                                            id="duelist-title"
+                                            maxlength="40"
+                                            placeholder="Enter your title"
+                                        />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="duelist-bio"> PROFILE DESCRIPTION </label>
+
+                                        <textarea
+                                            id="duelist-bio"
+                                            rows="4"
+                                            maxlength="300"
+                                            placeholder="Tell us about yourself."
+                                        ></textarea>
+                                    </div>
+
+                                    <button type="submit" class="primary-button">
+                                        SAVE IDENTITY
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                </form>
+
+                                <button id="download-id-button" class="secondary-button">
+                                    DOWNLOAD DUELIST ID
+                                    <i class="fa-solid fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="review-modal" class="modal hidden">
+                <div class="modal-overlay"></div>
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span>KC DECK VERIFICATION</span>
+
+                        <button id="close-review-modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="review-emblem">KC</div>
+
+                    <div class="review-result">
+                        <span id="review-status">SYSTEM REVIEW</span>
+
+                        <h2 id="review-title">DECK VERIFICATION</h2>
+
+                        <p id="kaiba-dialogue">"Let's see what you've got."</p>
+                    </div>
+
+                    <div id="review-details" class="review-details"></div>
+
+                    <button id="review-confirm-button" class="primary-button">CONFIRM</button>
+                </div>
+            </div>
+
+            <div id="scenario-modal" class="modal hidden">
+                <div class="modal-overlay"></div>
+
+                <div class="modal-content scenario-detail">
+                    <div class="modal-header">
+                        <span>DUELIST ARCHIVE</span>
+
+                        <button id="close-scenario-modal" aria-label="Close">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <div class="scenario-detail-body">
+                        <span id="scenario-detail-character"> CHARACTER </span>
+
+                        <h2 id="scenario-detail-title">SCENARIO TITLE</h2>
+
+                        <div id="scenario-detail-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="toast" class="toast">
+                <i class="fa-solid fa-circle-check"></i>
+                <span id="toast-message">SYSTEM MESSAGE</span>
+            </div>
+
+            <footer class="global-footer">
+                <div class="footer-logo">KC</div>
+                <p>KAIBA CORPORATION</p>
+                <span>THE FUTURE OF DUELING STARTS HERE.</span>
+            </footer>
+        </div>
+
+        <!-- =====================================
+     KC AUTH MODAL
+====================================== -->
+        <div id="auth-modal" class="auth-modal" aria-hidden="true">
+            <div class="auth-backdrop" data-auth-close></div>
+
+            <section
+                class="auth-panel"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="auth-title"
+            >
+                <button class="auth-close" type="button" data-auth-close aria-label="Close">
+                    &times;
+                </button>
+
+                <div class="auth-brand">
+                    <span class="auth-brand-symbol">KC</span>
+                    <span>DUELIST NETWORK</span>
+                </div>
+
+                <div class="auth-heading">
+                    <span class="auth-eyebrow">IDENTITY VERIFICATION</span>
+                    <h2 id="auth-title">WELCOME, DUELIST.</h2>
+                    <p>Access your personal duelist account.</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-auth-tab="login">LOGIN</button>
+                    <button class="auth-tab" data-auth-tab="signup">SIGN UP</button>
+                </div>
+
+                <form id="auth-form">
+                    <div class="auth-field auth-signup-only">
+                        <label for="auth-nickname">DUELIST NAME</label>
+                        <input
+                            id="auth-nickname"
+                            type="text"
+                            placeholder="Enter your nickname"
+                            autocomplete="nickname"
+                        />
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="auth-id">DUELIST ID</label>
+                        <input
+                            id="auth-id"
+                            type="text"
+                            placeholder="Enter your Duelist ID"
+                            autocomplete="username"
+                            required
+                        />
+                    </div>
+
+                    <div class="auth-field">
+                        <label for="auth-password">PASSWORD</label>
+                        <input
+                            id="auth-password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        />
+                    </div>
+
+                    <p id="auth-message" class="auth-message" aria-live="polite"></p>
+
+                    <button id="auth-submit" class="auth-submit" type="submit">
+                        <span>LOGIN TO KC</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+
+                <div class="auth-footer">KC NETWORK · ACCOUNT SYSTEM</div>
+            </section>
+        </div>
+
+        <script type="module" src="assets/js/app.js"></script>
+    </body>
+</html>
