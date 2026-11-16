@@ -1,0 +1,132 @@
+/* ========================================
+   KC DUELIST NETWORK - TOAST SYSTEM
+======================================== */
+
+/* ROOT */
+
+#toast {
+    --toast-accent: #79d9ff;
+    --toast-border: rgba(121, 217, 255, 0.25);
+    --toast-background: rgba(7, 17, 32, 0.94);
+
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    z-index: 10000;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+
+    width: max-content;
+    max-width: min(420px, calc(100vw - 40px));
+    padding: 18px 24px;
+
+    border: 1px solid var(--toast-border);
+    border-radius: 12px;
+
+    background: var(--toast-background);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(121, 217, 255, 0.06);
+
+    color: #eaf6ff;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* ========================================
+   TOAST ACTIVE STATE
+======================================== */
+
+#toast.show,
+#toast.active,
+#toast.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+/* ========================================
+   TOAST ICON
+======================================== */
+
+#toast > i {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--toast-accent);
+    font-size: 1.15rem;
+
+    filter: drop-shadow(0 0 8px rgba(121, 217, 255, 0.35));
+}
+
+/* ========================================
+   TOAST MESSAGE
+======================================== */
+
+#toast-message {
+    display: block;
+
+    color: #eaf6ff;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+    #toast {
+        right: 20px;
+        bottom: 20px;
+
+        max-width: calc(100vw - 40px);
+        padding: 15px 18px;
+        gap: 12px;
+    }
+
+    #toast > i {
+        font-size: 1rem;
+    }
+
+    #toast-message {
+        font-size: 0.76rem;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    #toast {
+        transition: none;
+        transform: none;
+    }
+}
